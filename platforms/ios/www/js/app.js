@@ -74,6 +74,8 @@ var app = {
                 }
             });
 
+            $('.current_key_is').html(localStorage.getItem("local_api_key"));
+
             
             //var pull_example = new Lungo.Element.Pull('#main-user', {
             //    onPull: "Pull down to refresh",      //Text on pulling
