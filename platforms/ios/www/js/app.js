@@ -50,6 +50,8 @@ var app = {
 
             $("#main-user").toggleClass('active splash scroll');
 
+            $("#main").removeClass("drag");
+
         } else { //we have a key baby
 
             $('.let-me-in').hide();
@@ -73,6 +75,17 @@ var app = {
             });
 
             
+            //var pull_example = new Lungo.Element.Pull('#main-user', {
+            //    onPull: "Pull down to refresh",      //Text on pulling
+            //    onRelease: "Release to get new data",//Text on releasing
+            //    onRefresh: "Refreshing...",          //Text on refreshing
+            //    callback: function() {               //Action on refresh
+            //        
+            //        location.reload();
+            //        
+            //        pull_example.hide();
+            //    }
+            //});
 
         }
 
@@ -96,23 +109,11 @@ var app = {
         });
 
         Lungo.init({
-            name: 'MultiStat',
-            resources: [
-                'sides/features.html']
+            name: 'MultiStat'
         });
 
 
-        var pull_example = new Lungo.Element.Pull('#main-user', {
-            onPull: "Pull down to refresh",      //Text on pulling
-            onRelease: "Release to get new data",//Text on releasing
-            onRefresh: "Refreshing...",          //Text on refreshing
-            callback: function() {               //Action on refresh
-                
-                location.reload();
-                
-                pull_example.hide();
-            }
-        });
+        
 
 
     }
