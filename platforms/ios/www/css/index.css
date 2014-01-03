@@ -113,3 +113,26 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+
+.currently_mining {
+    text-align: center;
+    overflow: hidden;
+    padding-top: 7px;
+}
+
+.mine-what {
+    border: 2px solid #2f2f2f;
+    border-radius: 4px;
+    float: left;
+    width: 44%;
+    margin: 10px;
+}
+
+.are-we-mining-scrypt, .are-we-mining-sha {
+    font-size: 37px;
+}
+
+body > section > [data-control="pull"] {
+    margin: 50px 0px 0px 0px;
+}
