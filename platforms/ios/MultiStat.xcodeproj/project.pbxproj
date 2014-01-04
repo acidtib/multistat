@@ -46,6 +46,7 @@
 		F4BEC80C5E584B259DCB90F7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0553B09BBC254633BD05F382 /* AVFoundation.framework */; };
 		8D57E3124FAF4609B4717A4B /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D4BC04BA59B478B9FD6470C /* CoreVideo.framework */; };
 		FA5D557D59524116ADE739F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 219DB6490D9D429DB3042B34 /* QuartzCore.framework */; };
+		D16629FB96EF466EBCDFCFD1 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 5164BC7792334ECE93E3881F /* CDVDevice.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,8 @@
 		0553B09BBC254633BD05F382 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		2D4BC04BA59B478B9FD6470C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreVideo.framework"; path = "System/Library/Frameworks/CoreVideo.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 		219DB6490D9D429DB3042B34 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "QuartzCore.framework"; path = "System/Library/Frameworks/QuartzCore.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		5164BC7792334ECE93E3881F /* CDVDevice.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVDevice.m"; path = "org.apache.cordova.device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		A7A641B7A37B41B8A7BA6E8B /* CDVDevice.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVDevice.h"; path = "org.apache.cordova.device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +248,8 @@
 				2512029AB3E440A4BAFFF935 /* CDVBarcodeScanner.mm */,
 				04825DB10E4D467D8FADA6EF /* zxing-all-in-one.cpp */,
 				29C47846A9E54E9C9B126F34 /* zxing-all-in-one.h */,
+				5164BC7792334ECE93E3881F /* CDVDevice.m */,
+				A7A641B7A37B41B8A7BA6E8B /* CDVDevice.h */,
 			);
 			name = Plugins;
 			path = MultiStat/Plugins;
@@ -438,6 +443,7 @@
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
 				37AD1340B1D34EB0AF7F02CD /* CDVBarcodeScanner.mm in Resources */,
 				0B79B5D2993E406EA063759A /* zxing-all-in-one.cpp in Resources */,
+				D16629FB96EF466EBCDFCFD1 /* CDVDevice.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

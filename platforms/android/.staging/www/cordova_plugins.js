@@ -6,12 +6,20 @@ module.exports = [
         "clobbers": [
             "cordova.plugins.barcodeScanner"
         ]
+    },
+    {
+        "file": "plugins/org.apache.cordova.device/www/device.js",
+        "id": "org.apache.cordova.device.device",
+        "clobbers": [
+            "device"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "com.phonegap.plugins.barcodescanner": "1.1.0"
+    "com.phonegap.plugins.barcodescanner": "1.1.0",
+    "org.apache.cordova.device": "0.2.6"
 }
 // BOTTOM OF METADATA
 });

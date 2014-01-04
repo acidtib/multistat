@@ -40,6 +40,12 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
 
+        if (parseFloat(window.device.version) >= 7.0) {
+            alert('im ios 7');  
+
+            $('.move_me_top').css({"padding-top":"13px", "height":"58px"});         
+        }
+
         //check if we have an api key saved
         if (localStorage.getItem("local_api_key") === null) {
 
