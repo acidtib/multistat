@@ -41,8 +41,6 @@ var app = {
     receivedEvent: function(id) {
 
         if (parseFloat(window.device.version) >= 7.0) {
-            alert('im ios 7');  
-
             $('.move_me_top').css({"padding-top":"13px", "height":"58px"});         
         }
 
@@ -82,7 +80,7 @@ var app = {
                 }
             });
 
-            $('.current_key_is').html(localStorage.getItem("local_api_key"));
+            //$('.current_key_is').html(localStorage.getItem("local_api_key"));
 
             
             //var pull_example = new Lungo.Element.Pull('#main-user', {
@@ -125,13 +123,14 @@ var app = {
     },
 
     scan: function() {
-        console.log('scanning');
         
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
         scanner.scan( function (result) { 
 
             $('.api_key_field').val(result.text);
+
+            $('.lets-go').trigger('click');
 
             //console.log("Scanner result: \n" +
             //    "text: " + result.text + "\n" +
