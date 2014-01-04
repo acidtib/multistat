@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.getElementById('scan').addEventListener('click', this.scan, false);
     },
     // deviceready Event Handler
     //
@@ -35,8 +36,15 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
     },
+    
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+
+        if (parseFloat(window.device.version) >= 7.0) {
+            alert('im ios 7');  
+
+            $('.move_me_top').css({"padding-top":"13px", "height":"58px"});         
+        }
 
         //check if we have an api key saved
         if (localStorage.getItem("local_api_key") === null) {
@@ -114,9 +122,32 @@ var app = {
             name: 'MultiStat'
         });
 
+    },
 
+    scan: function() {
+        console.log('scanning');
         
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
+        scanner.scan( function (result) { 
 
+            $('.api_key_field').val(result.text);
+
+            //console.log("Scanner result: \n" +
+            //    "text: " + result.text + "\n" +
+            //    "format: " + result.format + "\n" +
+            //    "cancelled: " + result.cancelled + "\n");
+            //document.getElementById("info").innerHTML = result.text;
+            //console.log(result);
+            
+            /*
+            if (args.format == "QR_CODE") {
+                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+            }
+            */
+
+        }, function (error) { 
+            alert("Scanning failed: ", error); 
+        } );
     }
 };

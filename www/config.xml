@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.ianalyst.multistat" version="1.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.ianalyst.multistat" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>MultiStat</name>
     <description>
         A simple stats app for the alternate cryto-currency mining site Multipool.us
@@ -7,6 +7,7 @@
     <author email="dan@ianalyst.com" href="http://ianalyst.com">
         iAnalyst Ninjas
     </author>
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" />
     <feature name="http://api.phonegap.com/1.0/device" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="default" />
