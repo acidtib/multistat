@@ -63,7 +63,7 @@ var app = {
             $('.let-me-in').hide();
 
             $.ajax({
-                url:"http://162.243.249.147/api/stat.php?api_key="+localStorage.getItem("local_api_key"),
+                url:"http://multistat.yovu.co/api/stat.php?api_key="+localStorage.getItem("local_api_key"),
                 type:'GET',
                 dataType:'json',
                 success: function (data) {

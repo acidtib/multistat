@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.getElementById('scan').addEventListener('click', this.scan, false);
     },
     // deviceready Event Handler
     //
@@ -35,8 +36,13 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
     },
+    
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+
+        if (parseFloat(window.device.version) >= 7.0) {
+            $('.move_me_top').css({"padding-top":"13px", "height":"58px"});         
+        }
 
         //check if we have an api key saved
         if (localStorage.getItem("local_api_key") === null) {
@@ -74,7 +80,7 @@ var app = {
                 }
             });
 
-            $('.current_key_is').html(localStorage.getItem("local_api_key"));
+            //$('.current_key_is').html(localStorage.getItem("local_api_key"));
 
             
             //var pull_example = new Lungo.Element.Pull('#main-user', {
@@ -114,9 +120,33 @@ var app = {
             name: 'MultiStat'
         });
 
+    },
 
+    scan: function() {
         
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
+        scanner.scan( function (result) { 
 
+            $('.api_key_field').val(result.text);
+
+            $('.lets-go').trigger('click');
+
+            //console.log("Scanner result: \n" +
+            //    "text: " + result.text + "\n" +
+            //    "format: " + result.format + "\n" +
+            //    "cancelled: " + result.cancelled + "\n");
+            //document.getElementById("info").innerHTML = result.text;
+            //console.log(result);
+            
+            /*
+            if (args.format == "QR_CODE") {
+                window.plugins.childBrowser.showWebPage(args.text, { showLocationBar: false });
+            }
+            */
+
+        }, function (error) { 
+            alert("Scanning failed: ", error); 
+        } );
     }
 };

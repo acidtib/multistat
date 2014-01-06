@@ -17,22 +17,22 @@
 <body>
 
     <aside id="features" data-transition="left" class="aside_fe_nav">
-            <header data-title="Balance">
-                <nav class="on-right">
-                    <a href="#" class="buttons" data-icon="settings"></a>
-                </nav>
-            </header>
+        <header data-title="Balance" class="move_me_top">
+            <nav class="on-right">
+                <a href="#" class="buttons" data-icon="settings"></a>
+            </nav>
+        </header>
 
-            <article class="list scroll active">
-                <ul class="dame_currency">
-                    
-                </ul>
-            </article>
-        </aside>
+        <article class="list scroll active">
+            <ul class="dame_currency">
+                
+            </ul>
+        </article>
+    </aside>
     
     <section id="main" data-transition="slide" data-aside="features" class="drag" data-pull="arrow-down">
         
-        <header class="main_head">
+        <header class="main_head move_me_top">
             <nav class="left_nav">
                 <a href="#" data-view-aside="features" data-icon="menu"></a>
             </nav>
@@ -56,8 +56,12 @@
                 <img src="img/logo.png" class="logo" style="margin: 18% 0 13.5% 0;" />
                 
                 <div class="form">
-                    <fieldset class="radius-bottom shadow" data-icon="lock">
-                        <input type="text" placeholder="API Key" id="txt-signup-password" value="" class="api_key_field">
+                    <button class="anchor" id="scan" data-label="Scan API Key"></button>
+                    <br/>
+                    <span style="color: #333;">or</span>
+                    <br/>
+                    <fieldset class="radius-bottom shadow" data-icon="lock" style="margin-top: 5px;">
+                        <input type="text" placeholder="Enter API Key" id="txt-signup-password" value="" class="api_key_field">
                     </fieldset>
                     <br/>
                     <button class="anchor lets-go" data-label="Lets Go"></button>
@@ -106,7 +110,6 @@
                 
                 <button class="anchor margin-bottom destroy-key"><abbr>Remove APi Key</abbr></button>
 
-                <div class="current_key_is"></div>
             </div>
         </article>
 
@@ -116,6 +119,7 @@
 
     <script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
     <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="barcodescanner.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/quo.js"></script>
     <script type="text/javascript" src="js/lungo.js"></script>
