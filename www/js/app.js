@@ -35,10 +35,15 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+
+        gaPlugin = window.plugins.gaPlugin;
+        gaPlugin.init(successHandler, errorHandler, "UA-39352206-9", 10);
     },
     
     // Update DOM on a Received Event
     receivedEvent: function(id) {
+
+        var gaPlugin;
 
         if (parseFloat(window.device.version) >= 7.0) {
             $('.move_me_top').css({"padding-top":"13px", "height":"58px"});         
@@ -63,7 +68,7 @@ var app = {
             $('.let-me-in').hide();
 
             $.ajax({
-                url:"http://162.243.249.147/api/stat.php?api_key="+localStorage.getItem("local_api_key"),
+                url:"http://multistat.yovu.co/api/stat.php?api_key="+localStorage.getItem("local_api_key"),
                 type:'GET',
                 dataType:'json',
                 success: function (data) {
