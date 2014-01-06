@@ -35,15 +35,10 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-
-        gaPlugin = window.plugins.gaPlugin;
-        gaPlugin.init(successHandler, errorHandler, "UA-39352206-9", 10);
     },
     
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-
-        var gaPlugin;
 
         if (parseFloat(window.device.version) >= 7.0) {
             $('.move_me_top').css({"padding-top":"13px", "height":"58px"});         
