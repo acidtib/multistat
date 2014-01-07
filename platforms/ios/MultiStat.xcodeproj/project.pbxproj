@@ -5,6 +5,7 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		0B79B5D2993E406EA063759A /* zxing-all-in-one.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04825DB10E4D467D8FADA6EF /* zxing-all-in-one.cpp */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
@@ -524,6 +525,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = MultiStat;
+				PROVISIONING_PROFILE = "7DAA1149-7B8E-4D40-B0B2-1E63D644A619";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -557,6 +559,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = MultiStat;
+				PROVISIONING_PROFILE = "2BA246C5-CC75-4BD0-962C-F145287A31EE";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
