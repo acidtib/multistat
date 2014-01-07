@@ -104,11 +104,31 @@ var app = {
 
         // save api key
         $(".lets-go").click(function () { 
+
             var api_key = $( ".api_key_field" ).val();
-            localStorage.local_api_key=api_key;
+
+            $.ajax({
+                url:"http://multistat.yovu.co/api/stat.php?api_key="+api_key,
+                type:'GET',
+                dataType:'json',
+                success: function (data) {
+                    
+                    //check if the key works
+                    if (data.status.what == '200') {
+
+                        localStorage.local_api_key=api_key;
             
-            location.reload();
-            
+                        location.reload();
+
+                    } else {
+
+                        Lungo.Notification.error('API Error', 'Please check your API Key and try again.', 'remove', 4);
+                    }
+
+                }
+            });
+
+
         });
 
         // destroy api key
@@ -133,9 +153,28 @@ var app = {
 
         scanner.scan( function (result) { 
 
-            $('.api_key_field').val(result.text);
+            $.ajax({
+                url:"http://multistat.yovu.co/api/stat.php?api_key="+result.text,
+                type:'GET',
+                dataType:'json',
+                success: function (data) {
+                    
+                    //check if the key works
+                    if (data.status.what == '200') {
 
-            $('.lets-go').trigger('click');
+                        $('.api_key_field').val(result.text);
+
+                        $('.lets-go').trigger('click');
+
+                    } else {
+
+                        Lungo.Notification.error('API Error', 'Please check your API Key and try again.', 'remove', 4);
+                    }
+
+                }
+            });
+
+            
 
             //console.log("Scanner result: \n" +
             //    "text: " + result.text + "\n" +
