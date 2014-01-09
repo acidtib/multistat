@@ -166,7 +166,7 @@ var app = {
 
                         } else {
 
-                            Lungo.Notification.error('API Error', 'Please check your API Key and try again.', 'remove', 4);
+                            Lungo.Notification.error('API Error', 'Please check your API Key and try again.', 'remove', 3);
                         }
 
                     }
@@ -174,7 +174,7 @@ var app = {
 
             } else {
 
-                Lungo.Notification.error('API Error', 'Are you sure this is a QR Code.', 'remove', 4);
+                Lungo.Notification.error('API Error', 'Are you sure this is a QR Code.', 'remove', 3);
 
             };
 
