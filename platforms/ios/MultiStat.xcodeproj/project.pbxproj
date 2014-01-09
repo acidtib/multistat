@@ -499,7 +499,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wes Cowan (9PHM32GQ5D)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -526,7 +526,7 @@
 				);
 				PRODUCT_NAME = MultiStat;
 				PROVISIONING_PROFILE = "7DAA1149-7B8E-4D40-B0B2-1E63D644A619";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -560,7 +560,7 @@
 				);
 				PRODUCT_NAME = MultiStat;
 				PROVISIONING_PROFILE = "2BA246C5-CC75-4BD0-962C-F145287A31EE";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -36,14 +36,10 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-        gaPlugin = window.plugins.gaPlugin;
-        gaPlugin.init(successHandler, errorHandler, "UA-39352206-9", 10);
     },
     
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-
-        var gaPlugin;
 
         if (parseFloat(window.device.version) >= 7.0) {
             $('.move_me_top').css({"padding-top":"13px", "height":"58px"});         
@@ -153,28 +149,35 @@ var app = {
 
         scanner.scan( function (result) { 
 
-            $.ajax({
-                url:"http://multistat.yovu.co/api/stat.php?api_key="+result.text,
-                type:'GET',
-                dataType:'json',
-                success: function (data) {
-                    
-                    //check if the key works
-                    if (data.status.what == '200') {
+            if (result.format == "QR_CODE") {
 
-                        $('.api_key_field').val(result.text);
+                $.ajax({
+                    url:"http://multistat.yovu.co/api/stat.php?api_key="+result.text,
+                    type:'GET',
+                    dataType:'json',
+                    success: function (data) {
+                        
+                        //check if the key works
+                        if (data.status.what == '200') {
 
-                        $('.lets-go').trigger('click');
+                            $('.api_key_field').val(result.text);
 
-                    } else {
+                            $('.lets-go').trigger('click');
 
-                        Lungo.Notification.error('API Error', 'Please check your API Key and try again.', 'remove', 4);
+                        } else {
+
+                            Lungo.Notification.error('API Error', 'Please check your API Key and try again.', 'remove', 4);
+                        }
+
                     }
+                });
 
-                }
-            });
+            } else {
 
-            
+                Lungo.Notification.error('API Error', 'Are you sure this is a QR Code.', 'remove', 4);
+
+            };
+
 
             //console.log("Scanner result: \n" +
             //    "text: " + result.text + "\n" +
