@@ -50,6 +50,8 @@ var app = {
 
             $('.in_user_nav').hide();
 
+            $('.ele_footer').hide();
+
             $('.left_nav').hide(); //hide left slide
             $('.main_head').hide(); //hide top nav
 
