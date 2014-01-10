@@ -36,14 +36,10 @@ var app = {
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
 
-        gaPlugin = window.plugins.gaPlugin;
-        gaPlugin.init(successHandler, errorHandler, "UA-39352206-9", 10);
     },
     
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-
-        var gaPlugin;
 
         if (parseFloat(window.device.version) >= 7.0) {
             $('.move_me_top').css({"padding-top":"13px", "height":"58px"});         
@@ -104,11 +100,31 @@ var app = {
 
         // save api key
         $(".lets-go").click(function () { 
+
             var api_key = $( ".api_key_field" ).val();
-            localStorage.local_api_key=api_key;
+
+            $.ajax({
+                url:"http://multistat.yovu.co/api/stat.php?api_key="+api_key,
+                type:'GET',
+                dataType:'json',
+                success: function (data) {
+                    
+                    //check if the key works
+                    if (data.status.what == '200') {
+
+                        localStorage.local_api_key=api_key;
             
-            location.reload();
-            
+                        location.reload();
+
+                    } else {
+
+                        Lungo.Notification.error('API Error', 'Please check your API Key and try again.', 'remove', 4);
+                    }
+
+                }
+            });
+
+
         });
 
         // destroy api key
@@ -133,9 +149,35 @@ var app = {
 
         scanner.scan( function (result) { 
 
-            $('.api_key_field').val(result.text);
+            if (result.format == "QR_CODE") {
 
-            $('.lets-go').trigger('click');
+                $.ajax({
+                    url:"http://multistat.yovu.co/api/stat.php?api_key="+result.text,
+                    type:'GET',
+                    dataType:'json',
+                    success: function (data) {
+                        
+                        //check if the key works
+                        if (data.status.what == '200') {
+
+                            $('.api_key_field').val(result.text);
+
+                            $('.lets-go').trigger('click');
+
+                        } else {
+
+                            Lungo.Notification.error('API Error', 'Please check your API Key and try again.', 'remove', 3);
+                        }
+
+                    }
+                });
+
+            } else {
+
+                Lungo.Notification.error('API Error', 'Are you sure this is a QR Code.', 'remove', 3);
+
+            };
+
 
             //console.log("Scanner result: \n" +
             //    "text: " + result.text + "\n" +
