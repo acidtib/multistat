@@ -1,0 +1,26 @@
+<ion-view hide-nav-bar="true">
+  <ion-content has-header="true">
+
+    <div class="row">
+      <div class="col-100">
+        <img src="img/logo.png" class="logo">
+
+        <div class="list">
+          <button class="button button-block button-positive" ng-click="signIn(user)">
+            Scan API Key
+          </button>
+
+          <span class="or-this">OR</span>
+
+          <label class="item item-input">
+            <input type="text" ng-model="user.username" placeholder="Enter API Key">
+          </label>
+        </div>
+        <button class="button button-block button-positive" ng-click="signIn(user)">
+          Lets Go
+        </button>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,5 +1,14 @@
 angular.module('starter.controllers', [])
 
+.controller('WelcomeCtrl', function($scope, $state) {
+  $scope.login = function () {
+    $state.go('login');
+  };
+  $scope.register = function () {
+    $state.go('register');
+  };
+})
+
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};

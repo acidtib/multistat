@@ -7014,3 +7014,15 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.logo {
+  width: 75%;
+  margin: 18% 0 13.5% 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+
+.or-this {
+  padding: 3px 0px 13px 0px;
+  text-align: center;
+  display: block; }
