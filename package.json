@@ -1,7 +1,7 @@
 {
   "name": "multistat",
   "version": "1.0.0",
-  "description": "multistat: An Ionic project",
+  "description": "A simple stats app for the alternate cryto-currency mining site Multipool.us",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^0.7.1",
